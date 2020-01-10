@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% load staticfiles %} {% block header %}
+
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'wojtekmeble/css/style2.css' %}"
+/>
+
+{%endblock%} {% block content %}
+<div class="container-fluid text-center">
+  <div class="col-12">
+    <h1 class="heading">Galeria wykonanych zamówień</h1>
+    <div class="heading-underline"></div>
+    <a class="btn btn-danger btn-md" href="{% url 'wojtekmeble:index' %}"
+      ><strong>Powrót</strong>
+    </a>
+  </div>
+  <div class="row justify-content-center">
+    {% for pictures in picture %}
+    <div class="col-md-3 images">
+      <a data-src="{{ pictures.picture.url }}" data-fancybox="gallery">
+        <img src="{{ pictures.picture.url }}" alt="" />
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

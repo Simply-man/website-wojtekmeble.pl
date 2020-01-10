@@ -1,0 +1,202 @@
+{% extends 'base.html' %} {% load staticfiles %} {% block header %}
+<link rel="stylesheet" href="{% static 'wojtekmeble/css/style.css' %}" />
+<link rel="stylesheet" href="{% static 'wojtekmeble/css/fixed.css' %}" />
+{%endblock %}{% block title %} - Wojtek Meble {% endblock %} {%block content %}
+
+<!-- Start Home section-->
+<div id="Home">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">
+      <img
+        src="{% static 'wojtekmeble/img/logo.png' %}"
+        width="50"
+        height="50"
+        alt="wojtekmeble.pl"
+      />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarResponsive"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#Home">Strona Główna</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#RecentRealizations">Ostatnie realziacje</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#About">O firmie</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#Contact">Kontakt</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- End Navigation -->
+  <!-- Start Landing Page Section -->
+  <div class="landing">
+    <div class="home-wrap">
+      <div class="home-inner"></div>
+    </div>
+  </div>
+
+  <div class="caption text-center">
+    <h1>Meble Twoich Marzeń!</h1>
+    <h3>Wojtekmeble.pl</h3>
+    <a class="btn btn-outline-light btn-lg" href="#Contact">Contact</a>
+  </div>
+  <!-- End Landing Page Section -->
+</div>
+<!-- End Home Section-->
+<section>
+  <!-- Start Recent Realizations section-->
+  <div id="RecentRealizations" class="offset">
+    <div class="row justify-content-center">
+      <div class="col-12 narrow text-center">
+        <h1>Ostatnie Realizacje</h1>
+        <p class="lead">Umeblujemy wasze wymarzonę wnętrze!</p>
+        <div class="heading-underline3"></div>
+      </div>
+        {% for pictures in picture %}
+        <div class="col-md-3 images">
+          <a data-src="{{ pictures.picture.url }}" data-fancybox="gallery">
+            <img src="{{ pictures.picture.url }}" alt="fancybox" />
+          </a>
+        </div>
+        {% endfor %} 
+    <div class="col-12 narrow text-center">
+      <a
+        class="btn btn-secondary btn-lg"
+        href="{% url 'wojtekmeble:RecentRealizations' %}"
+        >Zobacz więcej
+      </a>
+    </div>
+  </div>
+  <!-- End Recent Realizations section-->
+
+  <!-- Start About section-->
+  <div id="About" class="offset">
+    <!-- Start Jumbotron Section-->
+    <div class="jumbotron">
+      <div class="narrow">
+        <div class="col-md-12 text-center">
+          <h3 class="heading">O Firmie</h3>
+          <div class="heading-underline"></div>
+        </div>
+        <div class="col-md-12 text-center">
+          <p class="lead">
+            ,,Meble Wojtek" to firma zajmująca się produkcją mebli t.j.
+            pokojowe, kuchenne, młodzieżowe, szafy wnękowe ale także nietypowych
+            (pod indywidualne zamówienie klienta). Mamy swoją tradycję oraz
+            bogate doświadczenie. Istniejemy na tym rynku już od 20 lat. Cechuje
+            nas sumienność, rzetelność a przede wszystkim profesjonalne
+            podejscie do każdego zamawiajacego. Dokładamy wszelkich starań,
+            abyśmy spełniali oczekiwania nawet najbardziej wymagających
+            klientów. Nasza oferta skierowana jest do osób, które cenią w
+            meblach nie tylko elegancję i dobre wzornictwo, ale też wygodę oraz
+            jakość, która zostaje na lata.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- End Jumbotron Section-->
+  </div>
+  <!-- End About Section-->
+
+  <!-- Start Graphs Section-->
+  <div id="Graphs" class="offset">
+    <div class="fixed-background">
+      <!-- Start Row Dark Section-->
+      <div class="row dark text-center">
+        <div class="col-12 text-center">
+          <h3 class="heading">Tysiące zadowolonych klientów!</h3>
+          <div class="heading-underline2"></div>
+        </div>
+        <!-- Start Display Graphs Section -->
+        <div class="col-md-3">
+          <h3>Rzetelność</h3>
+          <div class="box">
+            <div class="chart" data-percent="100">100%</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h3>Jakość Wykonania</h3>
+          <div class="box">
+            <div class="chart" data-percent="100">100%</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h3>Transport</h3>
+          <div class="box">
+            <div class="chart" data-percent="100">100%</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h3>Punktualność</h3>
+          <div class="box">
+            <div class="chart" data-percent="100">100%</div>
+          </div>
+        </div>
+        <!-- End Display Graphs Section -->
+      </div>
+      <!-- End Row Dark Section-->
+
+      <!-- Start Fixed Section-->
+      <div class="fixed-wrap">
+        <div class="fixed"></div>
+      </div>
+      <!-- End Fixed Section-->
+    </div>
+  </div>
+  <!-- End Graphs Section-->
+</section>
+<!-- Start Contact section-->
+<div class="Contact" id="Contact" class="offset">
+  <div class="row justify-content-center">
+    <div class="col-md-5 text-center">
+      <img src="{% static 'wojtekmeble/img/logo.png' %}" alt="logo" />
+
+      <p class="lead">
+        Jeśli zainteresowała Cię nasza oferta to zostało Ci tylko jedno.
+        Skontaktowanie się z nami. Tej decyzji na pewno nie będziesz żałować!
+      </p>
+      <strong>Kontakt</strong>
+      <div class="heading-underline"></div>
+      <p class="lead">
+        Tel: (+48) 606 873 986<br />E-mail: wojtek813@vp.pl
+      </p>
+    </div>
+  </div>
+</div>
+<footer>
+  <hr class="socket" />
+  <div class="col-md-12 text-center">
+    Wszelkie prawa zastrzeżone &copy; wojtekmeble.pl
+  </div>
+</footer>
+<!-- End Contact Section-->
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+  crossorigin="anonymous"
+></script>
+<script src="{% static 'wojtekmeble/js/jquery.easypiechart.js' %}"></script>
+<script src="{% static 'wojtekmeble/js/chart.js' %}"></script>
+
+
+{% endblock %}
