@@ -23,6 +23,11 @@ python manage.py runserver
 ``` 
 and everything should work correctly.
 
+  ### Admin site
+  *Login: admin
+  *Password: 123456
+
+
 ## Displaying Images
 Technologies that i used is called "Fancybox". Go here for more information: https://fancyapps.com/fancybox/3/.
 
