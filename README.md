@@ -21,7 +21,7 @@ Finally you can start your `virtual environment` then hit the command
 ```python 
 python manage.py runserver
 ``` 
-and everything should work correctly. Congrats you did pretty well.
+and everything should work correctly.
 
 ## Displaying Images
 Technologies that i used is called "Fancybox". Go here for more information: https://fancyapps.com/fancybox/3/.
